@@ -175,9 +175,23 @@ Parameters:
       - 'AmazonAuroraMySQL'
       - 'AmazonAuroraPostgreSQL'
       - 'AmazonRDSMySQL'
-      - 'AmazonRDSPostgreSQL'
+      - 'AmazonRDSPostgresSQL'
       - 'Oracle'
     ConstraintDescription: Must select a lab environment from the options.
+  ReplicationInstanceType:
+    Default: dms.t3.medium
+    AllowedValues:
+      - dms.t2.micro
+      - dms.t2.small
+      - dms.t2.medium
+      - dms.t3.medium
+      - dms.t2.large
+      - dms.c4.large
+      - dms.c4.xlarge
+      - dms.c4.2xlarge
+      - dms.c4.4xlarge
+    Description: The instance type to use for the replication instance.
+    Type: String
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable RDP access to the instance
     Type: AWS::EC2::KeyPair::KeyName
@@ -215,12 +229,31 @@ Parameters:
       - db.r5.4xlarge
     ConstraintDescription: Must be a valid Amazon RDS instance type.
 
+  CreateDMSComponents:
+    Description: If true, create the DMS instance, DMS endpoints, and the DMS task
+    Type: String
+    Default: true
+    AllowedValues:
+      - true
+      - false
+    ConstraintDescription: Parameter to flip to create the DMS components 
+  CreateDMSVPCRole:
+    Description: If true, create the DMS VPC role
+    Type: String
+    Default: false
+    AllowedValues:
+      - true
+      - false
+    ConstraintDescription: Parameter to flip to create the DMS VPC Role 
+  
+
 Conditions:
+  Create-DMS-VPC-Role: !Equals [ !Ref CreateDMSVPCRole, true ]
   SQLServer: !Equals [ !Ref LabType, 'MicrosoftSQLServer' ]
   AuroraMySQL:      !Equals [ !Ref LabType, 'AmazonAuroraMySQL' ]
   AuroraPostgreSQL: !Equals [ !Ref LabType, 'AmazonAuroraPostgreSQL' ]
   RDSMySQL:         !Equals [ !Ref LabType, 'AmazonRDSMySQL' ]
-  RDSPostgres:      !Equals [ !Ref LabType, 'AmazonRDSPostgreSQL' ]
+  RDSPostgreSQL:      !Equals [ !Ref LabType, 'AmazonRDSPostgreSQL' ]
   Oracle:           !Equals [ !Ref LabType, 'Oracle'] 
   Create-One: !Equals [ !Ref NumberInstances, 1 ]
   Create-Two: !Equals [ !Ref NumberInstances, 2 ]
@@ -228,6 +261,7 @@ Conditions:
   Do-Two: !Or
     - !Condition Create-Two
     - !Condition Create-Three
+  Create-DMS-Environment: !Equals [ !Ref CreateDMSComponents, true ]
 
 Resources:
   DmsVpc:
@@ -655,6 +689,35 @@ Resources:
       EngineVersion: 5.7.mysql_aurora.2.07.4
       LicenseModel: general-public-license
       PubliclyAccessible: 'false'
+
+  RDSPostGresql:
+    Condition: RDSPostgreSQL
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: '5'
+      AllowMajorVersionUpgrade: 'true'
+      DBInstanceClass: !Ref RDSInstanceType
+      Engine: postgres
+      DBName: postgres
+      VPCSecurityGroups:
+      - Fn::GetAtt:
+        - RDSSecurityGroup
+        - GroupId
+      DBSubnetGroupName:
+        Ref: DBSubnetGroup
+      DBInstanceIdentifier:
+        Fn::Join:
+        - "-"
+        - - Ref: AWS::StackName
+          - RDSPostGresql
+      EngineVersion: '12.5'
+      MasterUsername: 'dbmaster'
+      MasterUserPassword: 'dbmaster123'
+    DeletionPolicy: Snapshot
+    DependsOn:
+      - RDSSecurityGroup
+      - DBSubnetGroup
+
   SourceSQLServer:
     Condition: SQLServer
     Type: AWS::RDS::DBInstance
@@ -880,6 +943,113 @@ Resources:
         - !Join ['', [ 'node1.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
         - !Join ['', [ 'node2.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
         - !Join ['', [ 'node3.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
+
+  DMSCloudwatchRole:
+    Condition: Create-DMS-Environment
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: dms-cloudwatch-logs-role-maria
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - dms.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole'
+      Path: /
+
+  DMSVpcRole:
+    Condition: Create-DMS-Environment
+    Condition: Create-DMS-VPC-Role
+    Type: 'AWS::IAM::Role'
+    Properties:
+      RoleName: dms-vpc-role
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - dms.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole'
+      Path: /
+
+
+  DMSReplicationSubnetGroup:
+    Condition: Create-DMS-Environment
+    Type: 'AWS::DMS::ReplicationSubnetGroup'
+    Properties:
+      ReplicationSubnetGroupDescription: 'DMS replication subnet'
+      SubnetIds:
+      - Ref: Subnet1
+      - Ref: Subnet2
+      - Ref: Subnet3
+    DependsOn:
+      - Subnet1
+      - Subnet2
+      - Subnet3
+
+  DMSReplicationInstance:
+    Condition: Create-DMS-Environment
+    Type: 'AWS::DMS::ReplicationInstance'
+    DependsOn:
+      - DMSCloudwatchRole
+      - DMSReplicationSubnetGroup
+    Properties:
+      AllocatedStorage: 100
+      AllowMajorVersionUpgrade: true
+      AutoMinorVersionUpgrade: true
+      EngineVersion: 3.4.3
+      MultiAZ: false
+      PubliclyAccessible: false
+      ReplicationInstanceClass: !Ref ReplicationInstanceType
+      ReplicationSubnetGroupIdentifier: !Ref DMSReplicationSubnetGroup
+      VpcSecurityGroupIds:
+      - Fn::GetAtt:
+        - InstanceSecurityGroup
+        - GroupId
+
+
+  DMSAuroraEndpoint:
+    Condition: Create-DMS-Environment
+    Condition: AuroraPostgreSQL
+    Type: 'AWS::DMS::Endpoint'
+    Properties:
+      EngineName: aurora-postgresql
+      EndpointType: target
+      Username: 'dbmaster'
+      Password: 'dbmaster123'
+      ServerName: !GetAtt
+        - AuroraPostgresqlCluster
+        - Endpoint.Address
+      Port: 5432
+      DatabaseName: 'AuroraDB'
+    DependsOn:
+      - AuroraPostgresqlCluster
+
+  DMSRDSEndpoint:
+    Condition: Create-DMS-Environment
+    Condition: RDSPostgreSQL
+    Type: 'AWS::DMS::Endpoint'
+    Properties:
+      EngineName: postgres
+      EndpointType: target
+      Username: 'dbmaster'
+      Password: 'dbmaster123'
+      ServerName: !GetAtt
+        - RDSPostGresql
+        - Endpoint.Address
+      Port: 5432
+      DatabaseName: 'postgres'
+    DependsOn:
+      - RDSPostGresql
 
 
 Outputs:
