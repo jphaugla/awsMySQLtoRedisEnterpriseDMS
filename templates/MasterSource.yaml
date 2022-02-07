@@ -32,79 +32,60 @@ Metadata:
 Mappings:
   RegionMap: # 20 Regions
     us-east-1: # Virginia
-      "EC2AMI" : "ami-045d48ee4dd4f5210"  # Updated Feb 3, 2020
+      "EC2AMI" : "ami-08e4e35cccc6189f4"  # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:us-east-1:833997227572:snapshot:dms-lab-oracle-source-snapshot01"
-      "REDISEC2AMI" : "ami-0d894ea5521c64557"
     us-east-2: # Ohio
-      "EC2AMI" : "ami-021e119b2b955586a" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-001089eb624938d9f" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:us-east-2:833997227572:snapshot:dms-lab-oracle-source-us-east-2-snapshot01"
-      "REDISEC2AMI" : "ami-082a25bc38620fc4d"
     us-west-2: # Oregon
-      "EC2AMI" : "ami-04f6666670bad6990" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-066333d9c572b0680" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:us-west-2:833997227572:snapshot:dms-lab-oracle-source-us-west-2-snapshot01"
-      "REDISEC2AMI" : "ami-05037ab6f618ed336"
     af-south-1: # Cape Town [NO AMD]
-      "EC2AMI" : "ami-0c8aa4d034fda72df" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:af-south-1:833997227572:snapshot:dms-lab-oracle-source-snapshot01"
     ap-east-1: # Hong Kong [NO AMD]
-      "EC2AMI" : "ami-02c2c4016266a7993" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-east-1:833997227572:snapshot:dms-lab-oracle-source-snapshot01"
     ap-south-1: # Mumbai
-      "EC2AMI" : "ami-01ef7145a99919201" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-0af25d0df86db00c1" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-south-1:833997227572:snapshot:dms-lab-oracle-source-ap-south-1-snapshot01"
-      "REDISEC2AMI" : "ami-0eefc21aa52001198"
     ap-northeast-3: # Osaka [NO AMD]
-      "EC2AMI" : "ami-0851ca5087badf599" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-northeast-3:833997227572:snapshot:dms-lab-oracle-source-snapshot01"
     ap-northeast-2: # Seoul
-      "EC2AMI" : "ami-0f84e34359512e516" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-0b1d3b1941f23c7d5" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-northeast-2:833997227572:snapshot:dms-lab-oracle-source-ap-northeast-2-snapshot01"
-      "REDISEC2AMI" : "ami-0967b7ff9a7ba331e"
     ap-southeast-1: # Singapore
-      "EC2AMI" : "ami-08c6f23674b803e33" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-0356b1cd4aa0ee970" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-southeast-1:833997227572:snapshot:dms-lab-oracle-source-ap-southeast-1-snapshot01"
-      "REDISEC2AMI" : "ami-052d3e5a59fc4a877"
     ap-southeast-2: # Sydney
-      "EC2AMI" : "ami-0327c19efba4c1cc7" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-01dc883c13e87eeda" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-southeast-2:833997227572:snapshot:dms-lab-oracle-source-ap-southeast-2-snapshot01"
-      "REDISEC2AMI" : "ami-097cbef0451a30da5"
     ap-northeast-1: # Tokyo
-      "EC2AMI" : "ami-071fb5f94e15b8af8" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-032d6db78f84e8bf5" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ap-northeast-1:833997227572:snapshot:dms-lab-oracle-source-ap-northeast-1-snapshot01"
-      "REDISEC2AMI" : "ami-0ce04ab8bcd5de2e9"
     ca-central-1: # Canada
-      "EC2AMI" : "ami-008ec7358d43abf2a" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:ca-central-1:833997227572:snapshot:dms-lab-oracle-source-ca-central-1-snapshot01"
     eu-central-1: # Frankfurt
-      "EC2AMI" : "ami-009ce26e2fc8621cd" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-05cafdf7c9f772ad2" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:eu-central-1:833997227572:snapshot:dms-lab-oracle-source-eu-central-1-snapshot01"
-      "REDISEC2AMI" : "ami-09304ee2fe70b3aad"
     eu-west-1: # Ireland
-      "EC2AMI" : "ami-075c511465e103a00" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-01efa4023f0f3a042" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:eu-west-1:833997227572:snapshot:dms-lab-oracle-source-eu-west-1-snapshot01"
-      "REDISEC2AMI" : "ami-03b7776ede7f47475"
     eu-west-2: # London
-      "EC2AMI" : "ami-0738996a89d25ae41" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-0fdbd8587b1cf431e" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:eu-west-2:833997227572:snapshot:dms-lab-oracle-source-snapshot"
-      "REDISEC2AMI" : "ami-0c2b997e5c91153e0"
     eu-south-1: # Milan
       "EC2AMI" : "ami-0237a7d686bc096c4" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:eu-south-1:833997227572:snapshot:dms-lab-oracle-source-snapshot01"
     eu-west-3: # Paris
-      "EC2AMI" : "ami-0a9211e0416c5d9e7" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-031eb8d942193d84f" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:eu-west-3:833997227572:snapshot:dms-lab-oracle-source-snapshot"
-      "REDISEC2AMI" : "ami-0176733f200a89b17"
     eu-north-1: # Stockholm [NO AMD]
-      "EC2AMI" : "ami-0974f8de192e11d12" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-067a92fcca2611950" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:eu-north-1:833997227572:snapshot:dms-lab-oracle-source-snapshot"
-      "REDISEC2AMI" : "ami-040e6fa2d290e7b9b"
     me-south-1: # Bahrain [NO AMD]
-      "EC2AMI" : "ami-09162957d5fb4cc4f" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:me-south-1:833997227572:snapshot:dms-lab-oracle-source-snapshot01"
     sa-east-1: # Sao Paulo
-      "EC2AMI" : "ami-0c6dc49bd206d2bcf" # Updated Feb 3, 2020
+      "EC2AMI" : "ami-06078a297452ba5aa" # Updated Feb 3, 2020
       "OracleSnapshotId" : "arn:aws:rds:sa-east-1:833997227572:snapshot:dms-lab-oracle-source-snapshot"
-      "REDISEC2AMI" : "ami-06d197a564493b29b"
 
 Parameters:
   RedisDatabasePort:
@@ -130,9 +111,6 @@ Parameters:
     Type: String
   LocalIp:
     Description: local IP address used for security group ssh port opening
-    Type: String
-  S3Bucket:
-    Description: S3Bucket for holding redis connector spillage
     Type: String
   NumberInstances:
     Description: Number of Redis EC2 instances for this region
@@ -245,10 +223,19 @@ Parameters:
       - true
       - false
     ConstraintDescription: Parameter to flip to create the DMS VPC Role 
+  CreateRedis:
+    Description: If true, create Redis cluster
+    Type: String
+    Default: true
+    AllowedValues:
+      - true
+      - false
+    ConstraintDescription: Parameter to set to create the Redis Cluster and Route 53 entries
   
 
 Conditions:
   Create-DMS-VPC-Role: !Equals [ !Ref CreateDMSVPCRole, true ]
+  Create-Redis: !Equals [ !Ref CreateRedis, true ]
   SQLServer: !Equals [ !Ref LabType, 'MicrosoftSQLServer' ]
   AuroraMySQL:      !Equals [ !Ref LabType, 'AmazonAuroraMySQL' ]
   AuroraPostgreSQL: !Equals [ !Ref LabType, 'AmazonAuroraPostgreSQL' ]
@@ -262,8 +249,35 @@ Conditions:
     - !Condition Create-Two
     - !Condition Create-Three
   Create-DMS-Environment: !Equals [ !Ref CreateDMSComponents, true ]
+  Create-Redis: !Equals [ !Ref CreateRedis, true ]
 
 Resources:
+  OnlyRedis:
+    Type: 'AWS::CloudFormation::Stack'
+    Condition: Create-Redis
+    DependsOn:
+      - Subnet1
+      - Subnet2
+      - Subnet3
+      - InstanceSecurityGroup
+    Properties:
+      TemplateURL: OnlyRedis.yaml
+      TimeoutInMinutes: 20
+      Parameters:
+        Subnet1d: !Ref Subnet1 
+        Subnet2d: !Ref Subnet2 
+        Subnet3d: !Ref Subnet3 
+        InstanceSecurityGroup: !Ref InstanceSecurityGroup
+        ClusterName: !Ref ClusterName
+        ClusterURL: !Ref ClusterURL
+        HostedZoneName: !Ref HostedZoneName
+        HostedZoneId: !Ref HostedZoneId
+        ClusterUserName: !Ref ClusterUserName
+        ClusterPassword: !Ref ClusterPassword
+        NumberInstances: !Ref NumberInstances
+        RedisEC2InstType: !Ref RedisEC2InstType
+        KeyName: !Ref KeyName
+        RedisDatabasePort: !Ref RedisDatabasePort
   DmsVpc:
     Type: AWS::EC2::VPC
     Properties:
@@ -385,13 +399,6 @@ Resources:
           - "-"
           - - Ref: AWS::StackName
             - EC2Instance
-      BlockDeviceMappings:
-      - DeviceName: "/dev/sda1"
-        Ebs:
-          DeleteOnTermination: 'true'
-          Iops: '2000'
-          VolumeSize: '250'
-          VolumeType: io1
       ImageId:
         Fn::FindInMap:
         - RegionMap
@@ -404,6 +411,60 @@ Resources:
         SubnetId: !Ref Subnet2
         GroupSet:
         - Ref: InstanceSecurityGroup
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          sudo yum update -y
+          sudo yum install python3 -y
+          sudo yum install java-1.8.0-openjdk-devel -y
+          sudo yum erase awscli -y
+          sudo yum install mysql -y
+          sudo yum install postgresql -y
+          sudo yum install git maven -y
+          cd /home/ec2-user
+          echo "export PATH=.local/bin:$PATH" >> .bash_profile
+          cd /home/ec2-user
+          wget https://bootstrap.pypa.io/get-pip.py
+          su -c "python3 get-pip.py --user" -s /bin/sh ec2-user
+          su -c "/home/ec2-user/.local/bin/pip3 install boto3 --user" -s /bin/sh ec2-user
+          su -c "/home/ec2-user/.local/bin/pip3 install awscli --user" -s /bin/sh ec2-user
+          wget https://downloads.mysql.com/docs/world_x-db.tar.gz
+          wget https://downloads.mysql.com/docs/sakila-db.tar.gz
+          wget https://downloads.mysql.com/docs/menagerie-db.tar.gz
+          git clone https://github.com/datacharmer/test_db.git
+          tar -xvzf menagerie-db.tar.gz
+          tar -xvzf sakila-db.tar.gz
+          tar -xvzf world_x-db.tar.gz
+          echo "[client]" > .my.cnf
+          echo "user=dbmaster" >> .my.cnf
+          echo "password=dbmaster123" >> .my.cnf
+          echo "mysql < sakila-db/sakila-schema.sql" > testDB.sh
+          echo "mysql <  sakila-db/sakila-data.sql" >> testDB.sh
+          echo "mysql <  world_x-db/world_x.sql" >> testDB.sh
+          echo "cd test_db" >> testDB.sh
+          echo "mysql < employees.sql" >> testDB.sh
+          echo "cd ../menagerie-db" >> testDB.sh
+          echo "mysql < menagerie.sql" >> testDB.sh
+          chmod 755 testDB.sh
+          echo "create database menagerie;" > menagerie-db/menagerie.sql
+          echo "use menagerie;" >> menagerie-db/menagerie.sql
+          echo "SOURCE cr_pet_tbl.sql;" >> menagerie-db/menagerie.sql
+          echo "LOAD DATA LOCAL INFILE 'pet.txt' INTO TABLE pet;" >> menagerie-db/menagerie.sql
+          echo "SOURCE ins_puff_rec.sql;" >> menagerie-db/menagerie.sql
+          echo "SOURCE cr_event_tbl.sql;" >> menagerie-db/menagerie.sql
+          echo "LOAD DATA LOCAL INFILE 'event.txt' INTO TABLE pet;" >> menagerie-db/menagerie.sql
+          yum -y install autoconf automake make gcc-c++
+          yum -y install pcre-devel zlib-devel libmemcached-devel libevent-devel openssl-devel
+          git clone git://github.com/RedisLabs/memtier_benchmark.git
+          cd memtier_benchmark
+          autoreconf -ivf
+          ./configure
+          make
+          make install
+          cd /home/ec2-user
+          chown -R ec2-user:ec2-user memtier_benchmark
+          git clone https://github.com/jphaugla/awsMySQLtoRedisEnterpriseDMS.git
+          chown -R ec2-user:ec2-user *
 
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -600,7 +661,7 @@ Resources:
       - Fn::GetAtt:
         - RDSSecurityGroup
         - GroupId
-      DatabaseName: 'AuroraDB'
+      DatabaseName: 'MasterDB'
       Engine: aurora-postgresql
       EngineVersion: '12.4'
       DBClusterParameterGroupName: default.aurora-postgresql12
@@ -657,11 +718,11 @@ Resources:
       - Fn::GetAtt:
         - RDSSecurityGroup
         - GroupId
-      DatabaseName: AuroraMySQL
+      DatabaseName: 'MasterDB'
       Engine: aurora-mysql
       EngineVersion: 5.7.mysql_aurora.2.07.4
-      MasterUsername: awssct
-      MasterUserPassword: Password1
+      MasterUsername: dbmaster
+      MasterUserPassword: dbmaster123
     DependsOn: RDSSecurityGroup
   AuroraMySQLInstance:
     Condition: AuroraMySQL
@@ -718,6 +779,34 @@ Resources:
       - RDSSecurityGroup
       - DBSubnetGroup
 
+  RDSMySQL:
+    Condition: RDSMySQL
+    Type: AWS::RDS::DBInstance
+    Properties:
+      AllocatedStorage: '5'
+      AllowMajorVersionUpgrade: 'true'
+      DBInstanceClass: !Ref RDSInstanceType
+      Engine: mysql 
+      DBName: RdsMySQL
+      VPCSecurityGroups:
+      - Fn::GetAtt:
+        - RDSSecurityGroup
+        - GroupId
+      DBSubnetGroupName:
+        Ref: DBSubnetGroup
+      DBInstanceIdentifier:
+        Fn::Join:
+        - "-"
+        - - Ref: AWS::StackName
+          - RDSMySQL
+      EngineVersion: '8.0.27'
+      MasterUsername: 'dbmaster'
+      MasterUserPassword: 'dbmaster123'
+    DeletionPolicy: Snapshot
+    DependsOn:
+      - RDSSecurityGroup
+      - DBSubnetGroup
+
   SourceSQLServer:
     Condition: SQLServer
     Type: AWS::RDS::DBInstance
@@ -753,196 +842,6 @@ Resources:
       BackupRetentionPeriod: '0'
     DependsOn: RDSSecurityGroup
 
-  IPAddressVM1:
-    Type: AWS::EC2::EIP
-
-  IPAssocVM1:
-    Type: AWS::EC2::EIPAssociation
-    Properties:
-      InstanceId: !Ref RedisEC2VM1
-      EIP: !Ref IPAddressVM1
-
-  RedisEC2VM1:
-    Type:  AWS::EC2::Instance
-    DependsOn:
-      - Subnet2
-      - IPAddressVM1
-    Properties:
-      ImageId:
-        Fn::FindInMap:
-        - RegionMap
-        - !Ref AWS::Region
-        - REDISEC2AMI
-      InstanceType: !Ref RedisEC2InstType
-      SubnetId: !Ref Subnet2
-      KeyName: !Ref KeyName
-      SecurityGroupIds:
-        - Ref: InstanceSecurityGroup
-      Tags:
-        - Key: 'Name'
-          Value: !Join ['',  [!Ref AWS::StackName, 'VM1'] ]
-      UserData:
-        Fn::Base64:
-          !Sub |
-             #!/bin/bash -xe
-             sudo  bash -l
-             yum -y install git wget bind-utils
-             /opt/redislabs/bin/rladmin cluster create name ${RedisNSRecord} persistent_path /var/opt/redislabs/persist  ephemeral_path /var/opt/redislabs/tmp  addr $(hostname -i) username ${ClusterUserName} password ${ClusterPassword} external_addr $(dig +short myip.opendns.com @resolver1.opendns.com) register_dns_suffix
-             cd /home/ec2-user
-             mkdir rlec
-             cd rlec
-             wget https://s3.amazonaws.com/redis-enterprise-software-downloads/6.2.8/redislabs-6.2.8-53-rhel7-x86_64.tar
-             tar xvf redislabs-6.2.8-53-rhel7-x86_64.tar
-             ./install.sh -y --allow-same-version
-
-  IPAddressVM2:
-    Condition: Do-Two
-    Type: AWS::EC2::EIP
-
-  IPAssocVM2:
-    Condition: Do-Two
-    Type: AWS::EC2::EIPAssociation
-    Properties:
-      InstanceId: !Ref RedisEC2VM2
-      EIP: !Ref IPAddressVM2
-
-  RedisEC2VM2:
-    Type:  AWS::EC2::Instance
-    Condition: Do-Two
-    DependsOn:
-      - Subnet3
-      - RedisEC2VM1
-      - IPAddressVM2
-    Properties:
-      ImageId:
-        Fn::FindInMap:
-        - RegionMap
-        - !Ref AWS::Region
-        - REDISEC2AMI
-      InstanceType: !Ref RedisEC2InstType
-      SubnetId: !Ref Subnet3
-      KeyName: !Ref KeyName
-      SecurityGroupIds:
-        - Ref: InstanceSecurityGroup
-      Tags:
-        - Key: 'Name'
-          Value: !Join ['',  [!Ref AWS::StackName, 'VM2'] ]
-      UserData:
-        Fn::Base64:
-          !Sub |
-              #!/bin/bash -xe
-              sudo  bash -l
-              yum -y install bind-utils git wget
-              cd /home/ec2-user
-              mkdir rlec
-              cd rlec
-              wget https://s3.amazonaws.com/redis-enterprise-software-downloads/6.2.8/redislabs-6.2.8-53-rhel7-x86_64.tar
-              tar xvf redislabs-6.2.8-53-rhel7-x86_64.tar
-              /opt/redislabs/bin/rl_uninstall.sh
-              ./install.sh -y --allow-same-version
-              sudo  bash -l
-              /opt/redislabs/bin/rladmin cluster join nodes ${RedisEC2VM1.PrivateIp} persistent_path /var/opt/redislabs/persist  ephemeral_path /var/opt/redislabs/tmp  addr $(hostname -i) username ${ClusterUserName} password ${ClusterPassword} external_addr $(dig +short myip.opendns.com @resolver1.opendns.com)
-
-  IPAddressVM3:
-    Condition: Create-Three
-    Type: AWS::EC2::EIP
-
-  IPAssocVM3:
-    Condition: Create-Three
-    Type: AWS::EC2::EIPAssociation
-    Properties:
-      InstanceId: !Ref RedisEC2VM3
-      EIP: !Ref IPAddressVM3
-
-  RedisEC2VM3:
-    Condition: Create-Three
-    Type:  AWS::EC2::Instance
-    DependsOn:
-      - RedisEC2VM1
-      - IPAddressVM3
-    Properties:
-      ImageId:
-        Fn::FindInMap:
-        - RegionMap
-        - !Ref AWS::Region
-        - REDISEC2AMI
-      InstanceType: !Ref RedisEC2InstType
-      SubnetId: !Ref Subnet1
-      KeyName: !Ref KeyName
-      SecurityGroupIds:
-        - Ref: InstanceSecurityGroup
-      Tags:
-        - Key: 'Name'
-          Value: !Join ['',  [!Ref AWS::StackName, 'VM3'] ]
-      UserData:
-        Fn::Base64:
-          !Sub |
-              #!/bin/bash -xe
-              sudo  bash -l
-              yum -y install bind-utils git wget
-              cd /home/ec2-user
-              mkdir rlec
-              cd rlec
-              wget https://s3.amazonaws.com/redis-enterprise-software-downloads/6.2.8/redislabs-6.2.8-53-rhel7-x86_64.tar
-              tar xvf redislabs-6.2.8-53-rhel7-x86_64.tar
-              /opt/redislabs/bin/rl_uninstall.sh
-              ./install.sh -y --allow-same-version
-              sudo  bash -l
-              /opt/redislabs/bin/rladmin cluster join nodes ${RedisEC2VM1.PrivateIp} persistent_path /var/opt/redislabs/persist  ephemeral_path /var/opt/redislabs/tmp  addr $(hostname -i) username ${ClusterUserName} password ${ClusterPassword} external_addr $(dig +short myip.opendns.com @resolver1.opendns.com)
-
-  RedisARecord1:
-    Type: AWS::Route53::RecordSet
-    DependsOn:
-      - IPAddressVM1
-    Properties:
-      HostedZoneId: !Ref HostedZoneId
-      Comment: DNS name for my instance
-      Name: !Join ['',  ['node1.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
-      Type: A
-      TTL: 900
-      ResourceRecords:
-        - !Ref IPAddressVM1
-
-
-  RedisARecord2:
-    Condition: Do-Two
-    Type: AWS::Route53::RecordSet
-    DependsOn:
-      - IPAddressVM2
-    Properties:
-      HostedZoneId: !Ref HostedZoneId
-      Comment: DNS name for my instance
-      Name: !Join ['',  ['node2.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
-      Type: A
-      TTL: 900
-      ResourceRecords:
-        - !Ref IPAddressVM2
-
-  RedisARecord3:
-    Condition: Create-Three
-    Type: AWS::Route53::RecordSet
-    DependsOn:
-      - RedisEC2VM3
-    Properties:
-      HostedZoneId: !Ref HostedZoneId
-      Comment: DNS name for my instance
-      Name: !Join ['',  ['node3.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
-      Type: A
-      TTL: 900
-      ResourceRecords:
-        - !Ref IPAddressVM3
-
-  RedisNSRecord:
-    Type: AWS::Route53::RecordSet
-    Properties:
-      HostedZoneId: !Ref HostedZoneId
-      Name: !Join ['', [ !Ref ClusterName, ., !Ref HostedZoneName ] ]
-      Type: NS
-      TTL: '900'
-      ResourceRecords:
-        - !Join ['', [ 'node1.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
-        - !Join ['', [ 'node2.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
-        - !Join ['', [ 'node3.', !Ref ClusterName, ., !Ref HostedZoneName ] ]
 
   DMSCloudwatchRole:
     Condition: Create-DMS-Environment
@@ -1017,39 +916,74 @@ Resources:
         - GroupId
 
 
-  DMSAuroraEndpoint:
+  DMSAuroraPGEndpoint:
     Condition: Create-DMS-Environment
     Condition: AuroraPostgreSQL
     Type: 'AWS::DMS::Endpoint'
     Properties:
       EngineName: aurora-postgresql
-      EndpointType: target
+      EndpointType: source
       Username: 'dbmaster'
       Password: 'dbmaster123'
       ServerName: !GetAtt
         - AuroraPostgresqlCluster
         - Endpoint.Address
       Port: 5432
-      DatabaseName: 'AuroraDB'
+      DatabaseName: 'MasterDB'
     DependsOn:
       - AuroraPostgresqlCluster
 
-  DMSRDSEndpoint:
+  DMSRDSPGEndpoint:
     Condition: Create-DMS-Environment
     Condition: RDSPostgreSQL
     Type: 'AWS::DMS::Endpoint'
     Properties:
       EngineName: postgres
-      EndpointType: target
+      EndpointType: source
       Username: 'dbmaster'
       Password: 'dbmaster123'
       ServerName: !GetAtt
         - RDSPostGresql
         - Endpoint.Address
       Port: 5432
-      DatabaseName: 'postgres'
+      DatabaseName: 'MasterDB'
     DependsOn:
       - RDSPostGresql
+
+
+  DMSAuroraMySQLEndpoint:
+    Condition: Create-DMS-Environment
+    Condition: AuroraPostgreSQL
+    Type: 'AWS::DMS::Endpoint'
+    Properties:
+      EngineName: aurora-mysql
+      EndpointType: source
+      Username: 'dbmaster'
+      Password: 'dbmaster123'
+      ServerName: !GetAtt
+        - AuroraMySQLCluster
+        - Endpoint.Address
+      Port: 1433
+      DatabaseName: 'MasterDB'
+    DependsOn:
+      - AuroraMySQLCluster
+
+  DMSRDSMySQLEndpoint:
+    Condition: Create-DMS-Environment
+    Condition: RDSMySQL
+    Type: 'AWS::DMS::Endpoint'
+    Properties:
+      EngineName: mysql
+      EndpointType: source
+      Username: 'dbmaster'
+      Password: 'dbmaster123'
+      ServerName: !GetAtt
+        - RDSMySQL
+        - Endpoint.Address
+      Port: 1433
+      DatabaseName: 'MasterDB'
+    DependsOn:
+      - RDSMySQL
 
 
 Outputs:
@@ -1093,31 +1027,3 @@ Outputs:
       Fn::GetAtt:
       - SourceSQLServer
       - Endpoint.Address
-  RedisInstancePrivateDNS:
-    Description: 'Private DNS for Redis EC2 instance'
-    Value: !GetAtt RedisEC2VM1.PrivateDnsName
-
-  RedisInstancePublicDNS:
-    Description: 'Public DNS for Redis EC2 instance'
-    Value: !GetAtt RedisEC2VM1.PublicDnsName
-
-  RedisInstancePrivateIP:
-    Description: 'Private IP for Redis EC2 instance'
-    Value: !GetAtt RedisEC2VM1.PrivateIp
-
-  RedisInstancePublicIP:
-    Description: 'Public IP for Redis EC2 instance'
-    Value: !GetAtt RedisEC2VM1.PublicIp
-
-  RedisNSRecord:
-    Description: 'The NS Record Name for Redis'
-    Value: !Ref RedisNSRecord
-
-  RedisARecord1:
-    Description: 'The A Record Name for Redis'
-    Value: !Ref RedisARecord1
-
-  RedisPort:
-    Description: 'The Port used for Redis Database'
-    Value: !Ref RedisDatabasePort
-

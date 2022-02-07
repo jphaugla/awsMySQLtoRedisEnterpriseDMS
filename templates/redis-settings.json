@@ -1,0 +1,5 @@
+{
+      "ServerName": "redis-12000.internal.useast1.jphdms.demo-rlec.redislabs.com",
+      "Port": 12000,
+      "AuthType":"None"
+}
