@@ -1,5 +1,6 @@
 {
-      "ServerName": "redis-12000.internal.useast1.jphdms.demo-rlec.redislabs.com",
+      "ServerName": "redis-12000.useast1.jphdms.demo-rlec.redislabs.com",
       "Port": 12000,
-      "AuthType":"None"
+      "AuthType":"None",
+      "SslSecurityProtocol": "plaintext"
 }

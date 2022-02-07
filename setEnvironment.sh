@@ -27,10 +27,14 @@ export CREATE_ALL=false
 #  controls if redis connector is created
 export CREATE_CONNECTOR=false
 #  ec2 instance type for Redis instances
-export EC2_INSTANCE_TYPE=r4.2xlarge
+export EC2_INSTANCE_TYPE=m5.large
+#  ec2 instance type for Redis instances
+export REDIS_EC2_INSTANCE_TYPE=r4.2xlarge
 #  key pair for redis ec2 instances
 export KEY_PAIR=${PREFIX}_${REGION}
 # number of instances between 1 and 3
 export NUMBER_INSTANCES=2
 # lab type
-export LAB_TYPE=AmazonAuroraMySQL
+export LAB_TYPE=AmazonRDSMySQL
+# flag to create redis nodes (leave false if have existing Redis cluster)
+export CREATE_REDIS=true

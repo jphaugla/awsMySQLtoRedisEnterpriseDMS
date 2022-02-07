@@ -445,6 +445,7 @@ Resources:
           echo "mysql < employees.sql" >> testDB.sh
           echo "cd ../menagerie-db" >> testDB.sh
           echo "mysql < menagerie.sql" >> testDB.sh
+          echo "call mysql.rds_set_configuration('binlog retention hours', 24)"
           chmod 755 testDB.sh
           echo "create database menagerie;" > menagerie-db/menagerie.sql
           echo "use menagerie;" >> menagerie-db/menagerie.sql
@@ -759,7 +760,7 @@ Resources:
       AllowMajorVersionUpgrade: 'true'
       DBInstanceClass: !Ref RDSInstanceType
       Engine: postgres
-      DBName: postgres
+      DBName: MasterDB
       VPCSecurityGroups:
       - Fn::GetAtt:
         - RDSSecurityGroup
@@ -779,7 +780,7 @@ Resources:
       - RDSSecurityGroup
       - DBSubnetGroup
 
-  RDSMySQL:
+  RDSMySQLDB:
     Condition: RDSMySQL
     Type: AWS::RDS::DBInstance
     Properties:
@@ -787,7 +788,7 @@ Resources:
       AllowMajorVersionUpgrade: 'true'
       DBInstanceClass: !Ref RDSInstanceType
       Engine: mysql 
-      DBName: RdsMySQL
+      DBName: MasterDB
       VPCSecurityGroups:
       - Fn::GetAtt:
         - RDSSecurityGroup
@@ -798,7 +799,7 @@ Resources:
         Fn::Join:
         - "-"
         - - Ref: AWS::StackName
-          - RDSMySQL
+          - RDSMySQLDB
       EngineVersion: '8.0.27'
       MasterUsername: 'dbmaster'
       MasterUserPassword: 'dbmaster123'
@@ -905,7 +906,7 @@ Resources:
       AllocatedStorage: 100
       AllowMajorVersionUpgrade: true
       AutoMinorVersionUpgrade: true
-      EngineVersion: 3.4.3
+      EngineVersion: 3.4.6
       MultiAZ: false
       PubliclyAccessible: false
       ReplicationInstanceClass: !Ref ReplicationInstanceType
@@ -978,12 +979,12 @@ Resources:
       Username: 'dbmaster'
       Password: 'dbmaster123'
       ServerName: !GetAtt
-        - RDSMySQL
+        - RDSMySQLDB
         - Endpoint.Address
-      Port: 1433
+      Port: 3306
       DatabaseName: 'MasterDB'
     DependsOn:
-      - RDSMySQL
+      - RDSMySQLDB
 
 
 Outputs:
