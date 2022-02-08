@@ -1037,6 +1037,13 @@ Outputs:
       Fn::GetAtt:
       - AuroraPostgresqlCluster
       - Endpoint.Address
+  TargetRDSMySQLEndpoint:
+    Condition: RDSMySQL
+    Description: Target RDS (MySQL) Database Endpoint
+    Value:
+      Fn::GetAtt:
+      - RDSMySQLDBS 
+      - Endpoint.Address
   TargetAuroraMySQLEndpoint:
     Condition: AuroraMySQL
     Description: Target Aurora (MySQL) Database Endpoint

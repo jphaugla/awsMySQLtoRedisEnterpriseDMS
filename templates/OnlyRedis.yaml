@@ -34,6 +34,8 @@ Mappings:
       "REDISEC2AMI" : "ami-040e6fa2d290e7b9b"
     sa-east-1: # Sao Paulo
       "REDISEC2AMI" : "ami-06d197a564493b29b"
+    ca-central-1: # Canada
+      "REDISEC2AMI" : "ami-07a856043630a61c3"
 
 Parameters:
   ClusterName:

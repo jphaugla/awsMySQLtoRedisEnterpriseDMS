@@ -75,7 +75,7 @@ ssh -i ~/.ssh/<pem file> ec2-user@<ClientEC2PublicDSN>
 ```
 * Modify the mysql environment file created with the cloudformation script
 * File example is below.  For the host name, use the source mysql  source endpoint. This echo will add the host to the rest of the file which is pre-created by cloudformation
-    *This is very wordy [mysql doc link](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)
+    * This is very wordy [mysql doc link](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)
 ```bash
 echo "host=<mysqlDBEndpoint>" >> .my.cnf
 ```
@@ -94,7 +94,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql>
+mysql> exit
 ```
 ### Install Test Databases
 ```bash
@@ -108,13 +108,18 @@ ERROR 1419 (HY000) at line 2213: You do not have the SUPER privilege and binary 
 ### Complete DMS Steps
 The cloudFormation script does not set up the DMS endpoint for Redis Enterprise.  Using CLI bash scripts for the remaining setup
 * NOTE:  each of these scripts needs to have the ARNs corrected for your current environment.  So, the createDocDBEndpoint.sh needs the documentDB cluster ARN and the ARN of the created cerficate.  The createReplicationTask.sh needs the ARN for the dynamoDB endpoint, the documentDB endpoint, and the replication instance ARN.
+
+Before continuing the DMS steps, verify the source MySQL endpoint works by going to the [AWS DMS Database Migration Service](https://aws.amazon.com/dms/), click on endpoints, click on created endpoint, click on *Connections* tab and test the endpoint to verify it is working.
+
 ```bash
 cd templates
 # add IAM roles
 # create the endpoint for Redis Enterprise
 # edit the redis-settings.json file for the correct endpoint in the ServerName
 #  use the internal ip address and not the public address
+#  creating this endpoint in the AWS GUI has some bugs and doesn't seem to work so use a script
 ./createRedistEndpoint.sh
+#  make sure to test the endpoint before creating the replication task or the replication task will fail
 # edit the pertinent arns for the source endpoint, target endpoint, replication instance and then run the create replication scripts
 ./createReplicationTask.sh
 # edit the start replication script for ARN of the replication task
