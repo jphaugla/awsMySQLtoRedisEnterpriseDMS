@@ -1,0 +1,44 @@
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "2",
+            "rule-name": "2",
+            "rule-action": "include",
+            "object-locator": {
+                "schema-name": "employees",
+                "table-name": "%"
+            }
+        },
+        {
+            "rule-type": "selection",
+            "rule-id": "3",
+            "rule-name": "3",
+            "rule-action": "include",
+            "object-locator": {
+                "schema-name": "sakila",
+                "table-name": "%"
+            }
+        },
+        {
+            "rule-type": "selection",
+            "rule-id": "4",
+            "rule-name": "4",
+            "rule-action": "include",
+            "object-locator": {
+                "schema-name": "world_x",
+                "table-name": "%"
+            }
+        },
+        {
+            "rule-type": "selection",
+            "rule-id": "5",
+            "rule-name": "5",
+            "rule-action": "include",
+            "object-locator": {
+                "schema-name": "menagerie",
+                "table-name": "%"
+            }
+        }
+    ]
+}

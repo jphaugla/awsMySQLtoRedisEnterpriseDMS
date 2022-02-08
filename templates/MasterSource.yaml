@@ -157,17 +157,17 @@ Parameters:
       - 'Oracle'
     ConstraintDescription: Must select a lab environment from the options.
   ReplicationInstanceType:
-    Default: dms.t3.medium
+    Default: dms.t3.large
     AllowedValues:
       - dms.t2.micro
       - dms.t2.small
       - dms.t2.medium
-      - dms.t3.medium
+      - dms.t3.large
       - dms.t2.large
-      - dms.c4.large
-      - dms.c4.xlarge
-      - dms.c4.2xlarge
-      - dms.c4.4xlarge
+      - dms.c5.large
+      - dms.c5.xlarge
+      - dms.c5.2xlarge
+      - dms.c5.4xlarge
     Description: The instance type to use for the replication instance.
     Type: String
   KeyName:
@@ -780,7 +780,22 @@ Resources:
       - RDSSecurityGroup
       - DBSubnetGroup
 
-  RDSMySQLDB:
+  RDSMySQLParameterGroup:
+    Type: AWS::RDS::DBParameterGroup
+    Properties:
+      Tags:
+      - Key: Name
+        Value:
+          Fn::Join:
+          - "-"
+          - - Ref: AWS::StackName
+            - RDSMySQLParameterGroup
+      Description: RDS MySQL DBParameterGroup
+      Family: mysql8.0
+      Parameters:
+        binlog_format: 'ROW'
+
+  RDSMySQLDBS:
     Condition: RDSMySQL
     Type: AWS::RDS::DBInstance
     Properties:
@@ -793,13 +808,15 @@ Resources:
       - Fn::GetAtt:
         - RDSSecurityGroup
         - GroupId
+      DBParameterGroupName:
+        Ref: RDSMySQLParameterGroup
       DBSubnetGroupName:
         Ref: DBSubnetGroup
       DBInstanceIdentifier:
         Fn::Join:
         - "-"
         - - Ref: AWS::StackName
-          - RDSMySQLDB
+          - RDSMySQLDBS
       EngineVersion: '8.0.27'
       MasterUsername: 'dbmaster'
       MasterUserPassword: 'dbmaster123'
@@ -807,6 +824,7 @@ Resources:
     DependsOn:
       - RDSSecurityGroup
       - DBSubnetGroup
+      - RDSMySQLParameterGroup
 
   SourceSQLServer:
     Condition: SQLServer
@@ -979,12 +997,12 @@ Resources:
       Username: 'dbmaster'
       Password: 'dbmaster123'
       ServerName: !GetAtt
-        - RDSMySQLDB
+        - RDSMySQLDBS
         - Endpoint.Address
       Port: 3306
       DatabaseName: 'MasterDB'
     DependsOn:
-      - RDSMySQLDB
+      - RDSMySQLDBS
 
 
 Outputs:

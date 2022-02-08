@@ -1,6 +1,7 @@
 {
-      "ServerName": "redis-12000.useast1.jphdms.demo-rlec.redislabs.com",
+      "ServerName": "10.20.1.181",
       "Port": 12000,
-      "AuthType":"None",
+      "AuthType":"auth-token",
+      "AuthPassword":"jasonrocks",
       "SslSecurityProtocol": "plaintext"
 }

@@ -73,12 +73,12 @@ source setEnvironment.sh
 ssh -i ~/.ssh/<pem file> ec2-user@<ClientEC2PublicDSN>
 ```
 * Modify the mysql environment file created with the cloudformation script
-* File example is below.  For the host name, use the target mariaDB source endpoint. This echo will add the host to the rest of the file which is pre-created by cloudformation
+* File example is below.  For the host name, use the source mysql  source endpoint. This echo will add the host to the rest of the file which is pre-created by cloudformation
     *This is very wordy [mysql doc link](https://dev.mysql.com/doc/refman/8.0/en/option-files.html)
 ```bash
-echo "host=<mariaDBEndpoint>" >> .my.cnf
+echo "host=<mysqlDBEndpoint>" >> .my.cnf
 ```
-* connect to the mariaDB database using the pre-installed mysql client
+* connect to the mysql database using the pre-installed mysql client
 ```bash
 jphaugla1:~/environment $ mysql
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -112,6 +112,7 @@ cd templates
 # add IAM roles
 # create the endpoint for Redis Enterprise
 # edit the redis-settings.json file for the correct endpoint in the ServerName
+#  use the internal ip address and not the public address
 ./createRedistEndpoint.sh
 # edit the pertinent arns for the source endpoint, target endpoint, replication instance and then run the create replication scripts
 ./createReplicationTask.sh
