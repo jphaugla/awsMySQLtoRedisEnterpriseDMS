@@ -3,7 +3,8 @@
 
 Demonstrates using AWS RDS mysql database service (Aurora or base RDS) as source for DMS to migrate data to Redis Enterprise.  Note:  Other source databases are offered as source options but other than the two MySQL options, the others have not been tested or fully implemented.
 
-NOTE:  this is not currently working-problems with DMS Redis Endpoint
+NOTE:  this is currently working-however.  It only works if the redis database has OSS Redis API enabled.  Seems like a DMS bug.
+
 ## Overview
 
 Cloud formation template creates either an Aurora MySQL or an RDS MySQL database along with the appropriate DMS endpoint for this source MySQL database.  In addition to creating the required VPC components, a linux client and optionally a Redis Enterprise cluster with full DNS is created.  Scripts are provided to create sample mysql databases, Redis Endpoints and a migration task to bring the mysql data to Redis Enterprise.
