@@ -16,10 +16,10 @@ Cloud formation template creates either an Aurora MySQL or an RDS MySQL database
 - [Technical Overview](#technical-overview)
 - [Instructions](#instructions)
   - [Create Environment](#create-environment)
-  - [Verify Databases](#verify-databases)
-- [Windows Steps](#windows-steps)
-- [SCT](#SCT)
+  - [MySQL Database Setup](#mysql-database-setup)
+  - [Install Test Databases](#install-test-databases)
 - [Complete DMS Steps](#complete-dms-steps)
+
 ## AWS Services Used
 
 * [AWS DMS Database Migration Service](https://aws.amazon.com/dms/)
@@ -68,7 +68,7 @@ source setEnvironment.sh
 ./cfndeploy.sh
 ```
 
-### MySQL Databases setup
+### MySQL Database setup
 * Open the Client EC2 instance using ssh
 ```bash
 ssh -i ~/.ssh/<pem file> ec2-user@<ClientEC2PublicDSN>

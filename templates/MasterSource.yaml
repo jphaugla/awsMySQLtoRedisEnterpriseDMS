@@ -231,6 +231,9 @@ Parameters:
       - true
       - false
     ConstraintDescription: Parameter to set to create the Redis Cluster and Route 53 entries
+  RedisPassword:
+    Description: Redis AUTH password for the database
+    Type: String
   
 
 Conditions:
@@ -278,6 +281,8 @@ Resources:
         RedisEC2InstType: !Ref RedisEC2InstType
         KeyName: !Ref KeyName
         RedisDatabasePort: !Ref RedisDatabasePort
+        RedisPassword: !Ref RedisPassword
+
   DmsVpc:
     Type: AWS::EC2::VPC
     Properties:

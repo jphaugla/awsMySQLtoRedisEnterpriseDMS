@@ -105,6 +105,9 @@ Parameters:
   KeyName:
     Description: EC2 instance KeyName
     Type: String
+  RedisPassword:
+    Description: Password for the Redis Database Auth
+    Type: String
  
   
 
@@ -159,7 +162,7 @@ Resources:
              tar xvf redislabs-6.2.8-53-rhel7-x86_64.tar
              ./install.sh -y --allow-same-version
              bash -l
-             curl -v -k -u ${ClusterURL} -X POST https://localhost:9443/v1/bdbs -H Content-type:application/json -d '{ "name":"demo-db","port":${RedisDatabasePort},"memory_size":5000000,"type":"redis","replication":false, "oss_cluster":true}'
+             curl -v -k -u ${ClusterURL} -X POST https://localhost:9443/v1/bdbs -H Content-type:application/json -d '{ "name":"demo-db","port":${RedisDatabasePort},"memory_size":5000000,"type":"redis","replication":false, "oss_cluster":true, "authentication_redis_pass":${RedisPassword} }'
 
   RedisIPAddressVM2:
     Condition: Do-Two

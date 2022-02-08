@@ -38,3 +38,5 @@ export NUMBER_INSTANCES=2
 export LAB_TYPE=AmazonRDSMySQL
 # flag to create redis nodes (leave false if have existing Redis cluster)
 export CREATE_REDIS=true
+# replication instance type
+export REPLICATION_INSTANCE_TYPE=dms.c5.2xlarge
